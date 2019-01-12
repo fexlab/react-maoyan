@@ -1,0 +1,54 @@
+.my-tabbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  border-top: .5px solid #d8d8d8;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.my-tabbar-item {
+  flex: 1;
+  display: block;
+  text-decoration: none;
+  height: 48px;
+  line-height: 48px;
+  box-sizing: border-box;
+  color: #696969;
+  position: relative;
+  text-align: center;
+}
+
+.my-tabbar-text {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.my-tabbar-icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  margin: 5px auto 0;
+}
+
+.my-tabbar-icon svg {
+  width: 22px;
+  height: 22px;
+  vertical-align: top;
+}
+
+.my-tabbar-item svg,
+.my-tabbar-item svg > g path,
+.my-tabbar-item svg > path {
+  fill: #696969;
+}
+
+.my-tabbar-item.is-current svg,
+.my-tabbar-item.is-current svg > g path,
+.my-tabbar-item.is-current svg > path {
+  fill: #f03d37;
+}
+
+.my-tabbar-item.is-current .my-tabbar-text {
+  color: #f03d37;
+}

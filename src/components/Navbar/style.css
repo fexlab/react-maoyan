@@ -1,0 +1,17 @@
+.my-navbar {
+  position: relative;
+  height: 50px;
+  color: #fff;
+  background: #e54847;
+  padding: 0 50px;
+}
+
+.my-navbar-title {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 50px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+}
