@@ -1,0 +1,86 @@
+.my-cinema-item {
+  padding: 13px 15px;
+  background: #fff;
+  line-height: 1.5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.my-cinema-title {
+  height: 23px;
+  line-height: 23px;
+  font-size: 16px;
+  color: #000;
+}
+
+.my-cinema-price {
+  margin-left: 5px;
+  font-size: 11px;
+  color: #f03d37;
+}
+
+.my-cinema-price > span {
+  font-size: 18px;
+}
+
+.my-cinema-location {
+  display: flex;
+  margin-top: 6px;
+  font-size: 13px;
+  color: #666;
+}
+
+.my-cinema-address {
+  flex: 1;
+}
+
+.my-cinema-distance {
+  margin-left: 5px;
+}
+
+.my-cinema-label {
+  height: 17px;
+  line-height: 17px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  overflow: hidden;
+  font-size: 0;
+  flex-shrink: 0;
+}
+
+.my-cinema-label span {
+  position: relative;
+  display: inline-block;
+  padding: 0 3px;
+  margin-right: 3px;
+  height: 15px;
+  line-height: 15px;
+  border-radius: 2px;
+  font-size: .6rem;
+}
+
+.my-cinema-label span.is-green {
+  color: #589daf;
+  border: 1px solid #589daf;
+}
+
+.my-cinema-label span.is-yellow {
+  color: #f90;
+  border: 1px solid #f90;
+}
+
+.my-cinema-discount,
+.my-cinema-card {
+  position: relative;
+  padding-left: 20px;
+  color: #999;
+  margin-top: 4px;
+  font-size: 11px;
+}
+
+.my-cinema-discount img,
+.my-cinema-card img {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 15px;
+}

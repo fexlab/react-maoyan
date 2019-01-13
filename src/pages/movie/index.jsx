@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import Navbar from '../../components/Navbar'
 import Tabbar from '../../components/Tabbar'
@@ -144,7 +145,7 @@ class Movie extends React.Component {
                 onClick={this.handleTopbarChange.bind(this, 'future')}>即将上映</div>
             </div>
             <div className="my-topbar-right">
-              <span></span>
+              <Link to="/search" className="icon-search"></Link>
             </div>
           </div>
 

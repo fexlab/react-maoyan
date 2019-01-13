@@ -69,7 +69,7 @@
   justify-content: flex-end;
 }
 
-.my-topbar-right span {
+.my-topbar-right .icon-search {
   display: block;
   width: 20px;
   height: 20px;

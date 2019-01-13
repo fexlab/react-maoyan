@@ -1,9 +1,8 @@
 import React from 'react'
-
 import Navbar from '../../components/Navbar'
 import './style.css'
 
-class Search extends React.PureComponent {
+class Search extends React.Component {
   render() {
     return (
       <div>
@@ -17,7 +16,7 @@ class Search extends React.PureComponent {
                 <img className="my-search-clear" src="//s0.meituan.net/bs/?f=my-canary:/deploy/images/close.png" alt=""/>
               </div>
 
-              <div className="my-search-cancel">取消</div>
+              <div onClick={() => this.props.history.goBack()} className="my-search-cancel">取消</div>
             </div>
           </div>
         </div>
