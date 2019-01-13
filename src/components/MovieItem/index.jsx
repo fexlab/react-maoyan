@@ -25,13 +25,14 @@ class MovieItem extends React.Component {
             </div>
           }
           <div className="my-movie-item-actor">主演: {info.star}</div>
-          <div className="my-movie-item-other">{info.showInfo}</div>
+          <div className="my-movie-item-other">{info.showInfo || info.rt + '上映'}</div>
         </div>
 
         <div className="my-movie-item-right">
-          { info.globalReleased
+          { info.showst === 3
             ? <button className="my-movie-item-btn my-movie-item-btn-danger">购买</button>
-            : <button className="my-movie-item-btn">预售</button>
+            : info.showst === 4 ? <button className="my-movie-item-btn">预售</button>
+            : info.showst === 1 ? <button className="my-movie-item-btn my-movie-item-btn-warning">想看</button> : ''
           }
         </div>
 

@@ -6,7 +6,7 @@
   overflow: hidden;
 }
 
-.my-movie-item:after {
+.my-movie-item:not(:last-child):after {
   content: '';
   position: absolute;
   left: 90px;
@@ -128,4 +128,8 @@
 
 .my-movie-item-btn-danger {
   background-color: #f03d37;
+}
+
+.my-movie-item-btn-warning {
+  background-color: #faaf00;
 }
