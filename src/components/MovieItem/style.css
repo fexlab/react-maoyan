@@ -1,4 +1,5 @@
 .my-movie-item {
+  display: block;
   position: relative;
   padding: 12px 63px 12px 90px;
   height: 90px;

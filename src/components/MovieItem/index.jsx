@@ -1,11 +1,29 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './style.css'
 
 class MovieItem extends React.Component {
+
+  getButton(st) {
+    if (st === 1) {
+      return (
+        <button className="my-movie-item-btn my-movie-item-btn-warning">想看</button>
+      )
+    } else if (st === 3) {
+      return (
+        <button className="my-movie-item-btn my-movie-item-btn-danger">购买</button>
+      )
+    } else if (st === 4) {
+      return (
+        <button className="my-movie-item-btn">预售</button>
+      )
+    }
+  }
+
   render() {
-    const info = this.props.info
+    const { info } = this.props
     return (
-      <div className="my-movie-item">
+      <Link className="my-movie-item" to={`/movie/${info.id}`}>
         <img className="my-movie-item-cover" src={info.img.replace('w.h', '128.180')} alt={info.nm}/>
 
         <div className="my-movie-item-content">
@@ -29,14 +47,10 @@ class MovieItem extends React.Component {
         </div>
 
         <div className="my-movie-item-right">
-          { info.showst === 3
-            ? <button className="my-movie-item-btn my-movie-item-btn-danger">购买</button>
-            : info.showst === 4 ? <button className="my-movie-item-btn">预售</button>
-            : info.showst === 1 ? <button className="my-movie-item-btn my-movie-item-btn-warning">想看</button> : ''
-          }
+          { this.getButton(info.showst) }
         </div>
 
-      </div>
+      </Link>
     )
   }
 }

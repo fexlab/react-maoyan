@@ -8,13 +8,15 @@ import './style.css'
 import request from '../../utils/request'
 
 class Cinema extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       cinemaList: [],
       cinemaOffset: 0,
       cinemaFinish: false
     }
+
+    this.handleScroll = this.handleScroll.bind(this)
   }
 
   async getCinemaList() {
@@ -27,28 +29,25 @@ class Cinema extends React.Component {
     })
   }
 
-  bindEvent() {
-    document.querySelector('.my-container').addEventListener('scroll', (event) => {
-      const clientHeight = event.target.clientHeight
-      const scrollHeight = event.target.scrollHeight
-      const scrollTop = event.target.scrollTop
-      const isBottom = (clientHeight + scrollTop === scrollHeight)
-      if (isBottom) {
-        this.getCinemaList()
-      }
-    })
+  handleScroll(event) {
+    const clientHeight = event.target.clientHeight
+    const scrollHeight = event.target.scrollHeight
+    const scrollTop = event.target.scrollTop
+    const isBottom = (clientHeight + scrollTop === scrollHeight)
+    if (isBottom) {
+      this.getCinemaList()
+    }
   }
 
   componentDidMount() {
     this.getCinemaList()
-    this.bindEvent()
   }
 
   render() {
     return (
       <div>
         <Navbar/>
-        <div className="my-container my-container-cinema">
+        <div className="my-container my-container-cinema" onScroll={this.handleScroll}>
           <div className="my-topbar">
             <div className="my-topbar-left">
               <span>杭州</span>

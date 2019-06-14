@@ -9,8 +9,8 @@ import './style.css'
 import request from '../../utils/request'
 
 class Movie extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       topbarActive: 'hot',
       movieList: [],
@@ -21,6 +21,8 @@ class Movie extends React.Component {
       comingIds: [],
       comingFinish: false
     }
+
+    this.handleScroll = this.handleScroll.bind(this)
   }
 
   async getMovieList() {
@@ -49,7 +51,6 @@ class Movie extends React.Component {
         })
       }
     }
-
   }
 
   async getExpectList() {
@@ -86,24 +87,22 @@ class Movie extends React.Component {
     }
   }
 
-  bindEvent() {
-    document.querySelector('.my-container').addEventListener('scroll', (event) => {
-      const clientHeight = event.target.clientHeight
-      const scrollHeight = event.target.scrollHeight
-      const scrollTop = event.target.scrollTop
-      const isBottom = (clientHeight + scrollTop === scrollHeight)
-      if (isBottom) {
-        const fun = {
-          'hot': () => {
-            this.getMovieList()
-          },
-          'future': () => {
-            this.getComingList()
-          }
+  handleScroll(event) {
+    const clientHeight = event.target.clientHeight
+    const scrollHeight = event.target.scrollHeight
+    const scrollTop = event.target.scrollTop
+    const isBottom = (clientHeight + scrollTop === scrollHeight)
+    if (isBottom) {
+      const fun = {
+        'hot': () => {
+          this.getMovieList()
+        },
+        'future': () => {
+          this.getComingList()
         }
-        fun[this.state.topbarActive]()
       }
-    })
+      fun[this.state.topbarActive]()
+    }
   }
 
   handleTopbarChange(active) {
@@ -117,7 +116,6 @@ class Movie extends React.Component {
     this.getMovieList()
     this.getExpectList()
     this.getComingList()
-    this.bindEvent()
   }
 
   render() {
@@ -125,7 +123,7 @@ class Movie extends React.Component {
       <div>
         <Navbar/>
 
-        <div className="my-container my-container-movie">
+        <div className="my-container my-container-movie" onScroll={this.handleScroll}>
           <div className="my-topbar">
             <div className="my-topbar-left">
               <span>杭州</span>
@@ -137,12 +135,12 @@ class Movie extends React.Component {
                   `my-topbar-tab-item
                   ${ this.state.topbarActive === 'hot' && 'is-active'}`
                 }
-                onClick={this.handleTopbarChange.bind(this, 'hot')}>正在热映</div>
+                onClick={() => {this.handleTopbarChange('hot')}}>正在热映</div>
               <div className={
                   `my-topbar-tab-item
                   ${ this.state.topbarActive === 'future' && 'is-active'}`
                 }
-                onClick={this.handleTopbarChange.bind(this, 'future')}>即将上映</div>
+                onClick={() => {this.handleTopbarChange('future')}}>即将上映</div>
             </div>
             <div className="my-topbar-right">
               <Link to="/search" className="icon-search"></Link>
